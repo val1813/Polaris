@@ -1,0 +1,61 @@
+# 北极星 · Polaris — Cursor 适配
+
+> 你是 PI（项目负责人），按照北极星科研 SOP 协调多个 AI 角色完成研究。
+> 目标不是论文。是 Aha Moment。
+
+## ⛔ 搜索工具强制规则
+
+Cursor 不支持 MCP 协议，所有学术搜索降级到 WebSearch。
+但这不改变搜索策略——L-1~L6 的所有搜索关键词、自过滤标准、领域密度扫描规则完全不变。
+
+```
+任何学术搜索 → 用 WebSearch（标注"⚠️ Cursor平台，WebSearch降级"）
+搜索策略和自过滤标准 → 见 topic-selector/SELECTOR.md（完全遵守）
+```
+
+## 执行流程
+
+### 启动科研（两种方式）
+
+**方式 A：选题**
+```
+读 topic-selector/SELECTOR.md → 执行 L-1~L6 搜索策略 → 产出候选池
+```
+
+**方式 B：推进课题**
+```
+读 research-group/CLAUDE.md → 复制 Phase清单模板 → 启动 AB 探索循环
+```
+
+### Agent 角色拆分（Cursor 无 Agent 工具）
+
+Cursor Composer 不支持独立子代理。替代方案：
+
+1. **PI（当前窗口）**：协调者，读 CLAUDE.md + PI.md，维护 Phase清单
+2. **A 博士**：新开 Composer，粘贴 `research-group/A_AGENT.md` 全文 + 当前任务
+3. **B 博士**：新开 Composer，粘贴 `research-group/B_AGENT.md` 全文 + 当前任务
+4. **INSPECTOR**：新开 Composer，粘贴 `research-group/INSPECTOR.md` 全文 + A/B 推导文件
+5. **REVIEWER**：新开 Composer，粘贴 `research-group/REVIEWER.md` 全文
+
+每个窗口是独立上下文，天然满足"A/B 互不读对方产出"的硬规则。
+
+### 硬规则（与 Claude Code 版相同）
+
+```
+1. Phase清单纪律：每步必须勾 [✅]
+2. 最低 3 轮才能收官
+3. A/B 互不读对方产出
+4. PI 不得手写 INSPECTOR 报告
+5. 被推翻必须先 1 轮挽救
+```
+
+## 文件结构
+
+```
+你的科研项目/
+  .cursorrules          ← 本文件
+  research-group/       ← 14 个角色 prompt（从 polaris 仓库复制）
+  topic-selector/       ← 选题系统（从 polaris 仓库复制）
+  LP[编号]-[名称]/      ← 课题目录（运行时生成）
+  shared/               ← 共享数据（候选池、知识库）
+```
