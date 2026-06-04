@@ -1,4 +1,4 @@
-# Polaris Registry — 社区知识库
+# AIxLib — 社区知识库
 
 > **独立仓库。** 这里只放 JSON。没有代码，没有 SOP。
 > URL: `github.com/val1813/aixlib` ✅ 已上线
