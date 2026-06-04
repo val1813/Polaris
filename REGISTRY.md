@@ -1,12 +1,12 @@
 # Polaris Registry — 社区知识库
 
 > **独立仓库。** 这里只放 JSON。没有代码，没有 SOP。
-> URL: `github.com/val1813/polaris-registry` ✅ 已上线
+> URL: `github.com/val1813/aixlib` ✅ 已上线
 
 ## 架构
 
 ```
-polaris (引擎)              polaris-registry (图书馆)
+polaris (引擎)              aixlib (图书馆)
 ├── research-group/         ├── entries/
 ├── topic-selector/         │   ├── LP27_v1.0_20260604.json
 ├── validation/             │   ├── LP24_v1.0_20260603.json
@@ -21,7 +21,7 @@ polaris (引擎)              polaris-registry (图书馆)
 
 ```
 1. 跑完课题 → GATE 7 产出 JSON
-2. Fork polaris-registry
+2. Fork aixlib
 3. 把 JSON 放到 entries/
 4. 提 PR
 5. GitHub Actions 自动跑 schema 校验 + metrics.py
@@ -59,7 +59,7 @@ GitHub Actions 自动检查：
 GitHub Pages 纯静态。不需要服务器。
 
 ```
-polaris-registry.github.io
+aixlib.github.io
   ├─ 首页：最新提交 + 按领域浏览
   ├─ 搜索：linker.py 生成的 index.json → 前端 JS 全文搜索
   ├─ 条目页：单条 JSON 的美化展示

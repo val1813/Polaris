@@ -27,7 +27,7 @@
 
 <p align="center">
   <b>AI 原生科研引擎</b> · 让每一个追问星空的人，都能触碰真理的边界<br>
-  <sub>不是写论文的工具。是寻找 <b>Aha Moment</b> 的引擎。<br>你的发现 = 一份标准 JSON → 贡献到 <b><a href="https://github.com/val1813/polaris-registry">AI 科学图书馆</a></b>，全人类共享。</sub>
+  <sub>不是写论文的工具。是寻找 <b>Aha Moment</b> 的引擎。<br>你的发现 = 一份标准 JSON → 贡献到 <b><a href="https://github.com/val1813/aixlib">AI 科学图书馆</a></b>，全人类共享。</sub>
 </p>
 
 <br>
@@ -797,7 +797,7 @@ polaris/
 
 **就三步。** 注册身份 → 跑课题 → 交 JSON。SOP 引擎在后台自动运转，收官时自动填好你的学术指纹。
 
-> 🏛️ JSON 提交到独立仓库 **[polaris-registry](https://github.com/val1813/polaris-registry)** → PR → 自动校验 → 合入 → 你的发现成为人类知识网络的一个节点。详见 [REGISTRY.md](REGISTRY.md)。
+> 🏛️ JSON 提交到独立仓库 **[aixlib](https://github.com/val1813/aixlib)** → PR → 自动校验 → 合入 → 你的发现成为人类知识网络的一个节点。详见 [REGISTRY.md](REGISTRY.md)。
 
 > 📖 详细安装 → [安装指南](#-安装指南) | 提示词速查 → [提示词大全](#-提示词大全) | 身份注册 → [ORCID.org](https://orcid.org)（免费，永久）
 
@@ -805,7 +805,7 @@ polaris/
 
 ## 🤝 贡献 — 不是贡献代码，是贡献发现
 
-**这个项目的未来不是"更完美的 SOP"。是很多很多人各自跑出发现，把 JSON 交到 [AI 科学图书馆](https://github.com/val1813/polaris-registry)——每一份都用 ORCID 确权，全人类共享。**
+**这个项目的未来不是"更完美的 SOP"。是很多很多人各自跑出发现，把 JSON 交到 [AI 科学图书馆](https://github.com/val1813/aixlib)——每一份都用 ORCID 确权，全人类共享。**
 
 你的发现永远属于你。ORCID iD 是你的学术指纹——就像 DOI 标识论文，ORCID 标识你。JSON 里同时有你的 ORCID 和你引用的 DOI，和传统论文一样——甚至更好：DOI 可能烂掉，ORCID 终身不变。
 
