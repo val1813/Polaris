@@ -302,7 +302,7 @@ python validation/validate.py roundN_claims.json
 | 🏷️ 分类 | `project.domain` `contradiction_type` `tags` | ✅ | 见 `knowledge_graph/TAXONOMY.md`——三类标签，可从已有选也可自创 |
 | 🪪 贡献者 | `project.contributor` | ✅ | **ORCID iD（学术身份证）+ GitHub + 可选姓名** |
 | ⚡ 矛盾 | `contradiction.*` | ✅ | 命题A/B原文+证据、为何不共存、解决后结论 |
-| 🔗 推导链 | `derivation_chain[]` | ✅ | 每步：谁做的、公式(SymPy+LaTeX)、变量/单位、假设、验证结果 |
+| 🔗 推导链 | `derivation_chain[]` | ⛔ 必填 | 每步：谁做的、公式(SymPy+LaTeX)、变量/单位、假设、验证结果。**没有推导链 = 不可验证 = 退回** |
 | 📢 声张 | `claims[]` | ✅ | 声张原文、确信度、存活/被证伪、正反证据、INSPECTOR+REVIEWER判定 |
 | 🔮 预言 | `predictions[]` | ⚠️ | 可检验预言：可观测量+数值+单位+误差+测量条件 |
 | 👥 AB贡献 | `ab_contributions` | ✅ | A/B各自框架、关键发现、每轮摘要、收敛判断 |
