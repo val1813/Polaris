@@ -15,11 +15,13 @@
 违反本条 = 本轮产出作废，必须重做。
 
 任何学术搜索（论文、arXiv、综述、引用验证）：
-  ⛔ 第0步（首次运行）：检查 vendor/paper-search-mcp.zip 是否存在？
-     存在且未解压 → 主动告诉用户："发现内置 MCP 包，一句命令即可配置：
-        解压 vendor/paper-search-mcp.zip，然后在 MCP 设置中添加即可。要现在配还是先用 WebSearch？"
-     用户选择配 → 等待配置完成后继续
-     用户选择跳过 → 降级 WebSearch，标注原因
+  ⛔ 第0步（首次运行）：检查 paper-search-mcp 是否可用？
+     不可用 → ⛔ 阻断并明确告知用户：
+        "paper-search-mcp 未配置。这意味着本轮课题的 13 次 Agent 搜索全部降级 WebSearch，
+         SELECTOR 的 8 条策略精度大打折扣，先发文献可能漏检（LP27教训：Tulipman&Berg漏检）。
+         内置安装包在 vendor/paper-search-mcp.zip，一句命令即可配置。
+         强烈建议现在配置。确定要跳过吗？"
+     用户仍跳过 → 降级 WebSearch，在 Phase清单 显式标注"⚠️ MCP不可用，全流程降级"
   ⛔ 第1步：必须先用 paper-search-mcp
      调用方式：直接在对话中说 "paper-search-mcp: <搜索关键词>"
      不要跳过。不要说"paper-search-mcp可能不可用我先用web_search"。
