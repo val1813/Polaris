@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <b>AI 原生科研引擎</b> · 你的发现 = 一份标准 JSON → <b><a href="https://github.com/val1813/aixsci">AI 科学图书馆</a></b>，全人类共享。
+  <b>AI 原生科研引擎</b> · 目的不是写论文，不是验证谁对谁错。<br>是找到真正的理论突破，推动科技进步。<br>你的发现 = 一份标准 JSON → <b><a href="https://github.com/val1813/aixsci">AIxSci</a></b>，全人类共享。
 </p>
 
 <br>
