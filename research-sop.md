@@ -1,4 +1,4 @@
-# 北极星 · Polaris — AI 原生科研引擎 v4.0
+# 北极星 · Polaris — AI 原生科研引擎 v1.0
 
 > **目标不是论文。是 Aha Moment。**
 > 每一个追问星空的人——无论文理——都可以在 AI 的帮助下，
@@ -15,6 +15,11 @@
 违反本条 = 本轮产出作废，必须重做。
 
 任何学术搜索（论文、arXiv、综述、引用验证）：
+  ⛔ 第0步（首次运行）：检查 vendor/paper-search-mcp.zip 是否存在？
+     存在且未解压 → 主动告诉用户："发现内置 MCP 包，一句命令即可配置：
+        解压 vendor/paper-search-mcp.zip，然后在 MCP 设置中添加即可。要现在配还是先用 WebSearch？"
+     用户选择配 → 等待配置完成后继续
+     用户选择跳过 → 降级 WebSearch，标注原因
   ⛔ 第1步：必须先用 paper-search-mcp
      调用方式：直接在对话中说 "paper-search-mcp: <搜索关键词>"
      不要跳过。不要说"paper-search-mcp可能不可用我先用web_search"。
@@ -22,8 +27,9 @@
   ⛔ 第2步：仅当 paper-search-mcp 返回以下任一结果时才允许用 WebSearch：
      - 返回空结果（0条命中）
      - 返回明确的错误信息（非"无权限"类错误）
-     - 用户确认未安装 paper-search-mcp
-  ⛔ 第3步：WebSearch 兜底。搜索完后必须在产出里标注"本文搜索由WebSearch完成（paper-search-mcp不可用）"
+     - paper-search-mcp 工具不可用（MCP server 未配置）
+     - 用户确认跳过 MCP 配置
+  ⛔ 第3步：WebSearch 兜底。搜索完后必须在产出里标注"⚠️ 本文搜索由WebSearch完成（paper-search-mcp不可用：<原因>）"
 
 不适用 paper-search-mcp 的唯一例外：
   - 搜索奖项公告/颁奖理由/机构新闻 → 直接用 WebSearch（这些不是学术论文）
@@ -53,12 +59,12 @@
 步骤：
 1. 读 topic-selector/SELECTOR.md（本skill目录下）
 2. 按 SELECTOR §执行流程 逐阶段执行：
-   L-1（隐藏假设）→ L0（实验张力）→ L1+L2（综述+奖项）→ L3-L6兜底
+   S1（隐藏假设）→ S2（实验张力）→ S3+S4（综述+奖项）→ S5-L6兜底
 3. 每个候选通过领域密度扫描 → L7分解 → AB验证
 4. 输出写入 shared/北极星候选池.md
 
 ⛔ 搜索强制：每一轮搜索必须先 paper-search-mcp（内置安装包在 vendor/paper-search-mcp.zip），失败才允许 WebSearch
-⛔ 不要跳过实验全文核查门（L0来源）
+⛔ 不要跳过实验全文核查门（S2来源）
 ⛔ 不要跳过领域密度扫描
 ⛔ 长命题优先，短命题仅通过网关放行
 ```
@@ -172,6 +178,10 @@ Phase清单.md ← 复制模板，全框 [ ]
 5. PI不得发明SOP不存在的步骤（交叉攻击、自我攻击反转等）
 6. REVIEWER的"引用虚构"/"先发冲突"指控→PI必须WebSearch独立验证
 7. 被推翻≠立刻降级：当前北极星被推翻→必须先强制1轮AB挽救（正面修复），挽救失败才允许降级选其他（见PI.md §2）
+8. ⛔ 学术搜索强制先用 paper-search-mcp：任何论文/文献搜索必须先调 paper-search-mcp，
+   仅当返回空/错误/不可用时才降级 WebSearch。违反 → 该搜索无效，必须补做。
+9. ⛔ 空转拦截：3轮后子命题=0且AHA=0且B未提新方向 → 禁止收官。必须触发AHA访客+额外AB轮，
+   最多额外2轮，仍空转才允许"有边界"收官。不允许"三轮跑完啥也没发现就关了"。
 ```
 
 ---

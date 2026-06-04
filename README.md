@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Polaris-v4.0-2563eb?style=for-the-badge&logo=starship&logoColor=white" alt="Version">
+  <img src="https://img.shields.io/badge/Polaris-v1.0-2563eb?style=for-the-badge&logo=starship&logoColor=white" alt="Version">
   <img src="https://img.shields.io/badge/State-Production%20Grade-22c55e?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Status">
   <img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge&logo=bookstack&logoColor=white" alt="License">
   <img src="https://img.shields.io/badge/PRs-Welcome-ec4899?style=for-the-badge&logo=gitmerge&logoColor=white" alt="PRs">
@@ -7,8 +7,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Engine-Claude%20Code-7c3aed?style=flat-square&logo=anthropic&logoColor=white" alt="Engine">
-  <img src="https://img.shields.io/badge/SELECTOR-v2.0-0891b2?style=flat-square&logo=astro&logoColor=white" alt="SELECTOR">
-  <img src="https://img.shields.io/badge/Research%20Group-v3.9-dc2626?style=flat-square&logo=googleresearch&logoColor=white" alt="Research Group">
+  <img src="https://img.shields.io/badge/SELECTOR-v1.0-0891b2?style=flat-square&logo=astro&logoColor=white" alt="SELECTOR">
+  <img src="https://img.shields.io/badge/Research%20Group-v1.0-dc2626?style=flat-square&logo=googleresearch&logoColor=white" alt="Research Group">
   <img src="https://img.shields.io/badge/Protocols-14%20Roles-7c3aed?style=flat-square&logo=protodotio&logoColor=white" alt="Roles">
   <img src="https://img.shields.io/badge/Search%20Strategies-L--1%20~%20L6-0891b2?style=flat-square&logo=googlesearchconsole&logoColor=white" alt="Strategies">
   <img src="https://img.shields.io/badge/Lines-4100+-6366f1?style=flat-square&logo=robotframework&logoColor=white" alt="Lines">
@@ -122,22 +122,22 @@ graph LR
 graph TB
     subgraph "POLARIS ENGINE"
         direction TB
-        SEL["🧭 SELECTOR v2.0<br/>中央选题系统"]
-        RG["⚔️ Research Group v3.9<br/>分布式科研引擎"]
+        SEL["🧭 SELECTOR v1.0<br/>中央选题系统"]
+        RG["⚔️ Research Group v1.0<br/>分布式科研引擎"]
     end
 
     SEL -->|"北极星候选池"| RG
     RG -->|"课题消耗反馈"| SEL
 
     subgraph "SELECTOR — 8条搜索策略"
-        Lm1["🔮 L-1 隐藏假设<br/>爱因斯坦模式"]
-        L0["🔥 L0 实验张力<br/>近两年数据矛盾"]
-        L1["📖 L1 综述挖掘<br/>Rev. Mod. Phys."]
-        L2["🏆 L2 奖项动机<br/>Nobel/Wolf/Breakthrough"]
-        L3["🌍 L3 跨领域裂谷<br/>hep-th vs cond-mat"]
-        L4["🕰️ L4 20年未解<br/>新工具已出现"]
-        L5["⚡ L5 实验对峙<br/>理论预言未证实"]
-        L6["🔐 L6 计算壁垒<br/>经典不可解"]
+        Lm1["🔮 S1 隐藏假设<br/>爱因斯坦模式"]
+        S2["🔥 S2 实验张力<br/>近两年数据矛盾"]
+        S3["📖 S3 综述挖掘<br/>Rev. Mod. Phys."]
+        S4["🏆 S4 奖项动机<br/>Nobel/Wolf/Breakthrough"]
+        S5["🌍 S5 跨领域裂谷<br/>hep-th vs cond-mat"]
+        S6["🕰️ S6 20年未解<br/>新工具已出现"]
+        S7["⚡ S7 实验对峙<br/>理论预言未证实"]
+        S8["🔐 S8 计算壁垒<br/>经典不可解"]
     end
 
     subgraph "Research Group — 14个角色"
@@ -222,6 +222,56 @@ GHD 预设 Gibbs 平衡 → 非保守系统不满足 → 可积性是前提
 
 <br>
 
+### 🏆 真实案例：LP24 — 从欧拉公式到统一约束方程
+
+> 完整推导过程见 [`examples/LP24-EulerUnification/`](examples/LP24-EulerUnification/) — 44 个文件，3 轮 AB 对抗，1 次终审，1 次消融审计。
+
+**起点：一个所有人都默认但没人质疑过的前提**
+
+欧拉公式 e^(iθ) = cos θ + i sin θ。每个物理系学生第一天就学会它。但从来没人问过：**|e^(iθ)|² = 1 这个条件，如果当成物理约束来用，会发生什么？**
+
+**过程：3 轮 AB 对抗，4 个机制接力生效**
+
+```
+Round 1: A博士从纤维丛出发，B博士从信息论切入
+         → INSPECTOR 发现 |e^(iθ)|²=1→Schrödinger 是循环论证 ❌
+
+Round 2: 转向"约束优先"框架，构建统一约束 ĈΨ = 0
+         → A博士发现 {ħ₀^m, Ĥ₀} 不闭合 🔴 致命缺陷
+
+Round 3: 消融分析介入 — 追问"验证工具本身对不对"
+         → 发现 Poisson 括号是经典工具，不该用来验证量子约束
+         → 统一可能需要范畴论自然变换，不是 Lie 代数闭合
+         
+         → REVIEWER 终审：16 条引用全真实 ✅ | Lusanna 先发 ⚠️
+         → 4 条声张被证伪 | 4 条存活 | Ĵ 约束 = 唯一原创点
+```
+
+**哪些机制起了关键作用：**
+
+| 机制 | 做了什么 | 没有它会怎样 |
+|------|---------|------------|
+| **INSPECTOR 校对** | R1 发现 |e^(iθ)|²=1→Schrödinger 是重言式 | 第一轮的错误推导会被当成"进展"继续推 |
+| **A/B 双路径对抗** | A 学院派找到 {ħ₀^m, Ĥ₀} 不闭合，B 野路子发现跨学科连接 | 只用 A—漏掉跨域洞察。只用 B—漏掉数学致命缺陷 |
+| **消融分析** | 追问"Poisson 括号这个工具本身对不对" | 会把工具的 artifact 当成框架的错误，错杀存活声张 |
+| **REVIEWER 终审** | 逐条验证 16 条引用，发现 Lusanna 1997 先发 | "统一约束代数"声张会撞上已有文献，投稿被秒拒 |
+| **Ĵ 独立抽取** | 从被部分证伪的框架中，把唯一原创点救出来 | 整个课题的遗产随框架一起被埋掉 |
+
+**结论：有边界 — 不是胜利，是诚实**
+
+LP24 没有产出"QM 和 GR 被统一了"的 PRL。它产出了更重要的东西：
+
+- ❌ 4 条声张被严格证伪（包括循环论证、先发冲突、工具误用）
+- ✅ Ĵ = dS_vN/dτ + ∇_μ J^μ_G = 0 — 一个原创的非平凡约束，无已知先发，生/死测试通过
+- ✅ 三层约束结构（相空间/Hilbert/热力学）— 组织已知物理的新概念框架
+- 📌 一个教训：统一需要范畴论自然变换，不是 Lie 代数闭合
+
+**这不是"失败"——这是科学。** 大部分课题走到最后都是"有边界"。但如果没有这套机制，LP24 很可能变成一篇"用几何重述量子力学"的论文——数学自洽但没有物理增量。消融分析把它拦住了，Ĵ 约束把它救回来了。
+
+> 📂 完整推导链、Phase清单、北极星队列、REVIEWER报告、消融审计 —— 见 [`examples/LP24-EulerUnification/`](examples/LP24-EulerUnification/)
+
+<br>
+
 ---
 
 ## 📥 安装指南
@@ -288,7 +338,11 @@ npx @smithery/cli install @openags/paper-search-mcp --client claude
 
 ## ⚡ 快速开始
 
-> 💡 **不想折腾安装？** 点击右上角 **⏬ Code → Download ZIP**，解压后告诉 AI：**"请读目录，将此套流程记到记忆中，以后说寻找课题或者科研SOP，请按这个要求严格执行"**。零配置，直接跑。
+> 💡 **不想折腾安装？** 点击右上角 **⏬ Code → Download ZIP**，解压后告诉 AI：
+>
+> **"请读目录，将此套流程记到记忆中。如果发现 vendor/paper-search-mcp.zip 未解压配置，提醒我一句命令即可配置。以后说寻找课题或者科研SOP，请按这个要求严格执行。"**
+>
+> 零配置直接跑（MCP 没配会自动降级 WebSearch，想配也只需一句命令）。
 
 安装后，直接对 Claude Code 说：
 
@@ -329,7 +383,7 @@ npx @smithery/cli install @openags/paper-search-mcp --client claude
 | `按科研SOP寻找课题` | 启动完整 SELECTOR 流程，扫描文献生成候选池 |
 | `帮我找一些量子引力方向的隐藏假设` | 定向选题，指定物理领域 |
 | `候选池空了，补货` | 触发 SELECTOR 补充新候选 |
-| `看看最近有什么实验-理论矛盾` | 专门触发 L0 实验张力扫描 |
+| `看看最近有什么实验-理论矛盾` | 专门触发 S2 实验张力扫描 |
 
 ### ⚔️ 科研推进相关
 
@@ -362,18 +416,18 @@ npx @smithery/cli install @openags/paper-search-mcp --client claude
 ```
 👤 用户：按科研SOP寻找课题
 
-🤖 Claude：收到。启动 SELECTOR v2.0。
-         → L-1 隐藏假设挖掘... 命中 1 个候选
-         → L0 实验张力扫描... 命中 2 个候选
-         → L1 综述挖掘... 命中 3 个开放问题
+🤖 Claude：收到。启动 SELECTOR v1.0。
+         → S1 隐藏假设挖掘... 命中 1 个候选
+         → S2 实验张力扫描... 命中 2 个候选
+         → S3 综述挖掘... 命中 3 个开放问题
          → 领域密度扫描...
          → AB 验证...
          → 候选池已写入 shared/北极星候选池.md
          
          📊 本次产出：
-         LP-07: 量子几何相位与超导电性 [L-1] 分数: 3.2
-         LP-08: muon g-2 与格点 QCD 张力 [L0] 分数: 2.8
-         LP-09: 量子疤痕与 ETH [L1] 分数: 2.4
+         LP-07: 量子几何相位与超导电性 [S1] 分数: 3.2
+         LP-08: muon g-2 与格点 QCD 张力 [S2] 分数: 2.8
+         LP-09: 量子疤痕与 ETH [S3] 分数: 2.4
 
 👤 用户：按科研SOP开展科研，做 LP-07
 
@@ -456,7 +510,7 @@ cp research-group/CLAUDE.md .cursorrules
 你是 PI（项目负责人），按照以下流程执行科研：
 
 1. 读 research-group/CLAUDE.md → 了解角色分工和执行流程
-2. 如果是要选题 → 读 topic-selector/SELECTOR.md → 执行 L-1~L6 搜索
+2. 如果是要选题 → 读 topic-selector/SELECTOR.md → 执行 S1~S8 搜索
 3. 如果是要科研 → 创建 Phase清单.md → 启动 A/B 博士探索
 
 注意：搜索工具只能用 WebSearch（Cursor 不支持 paper-search-mcp），
@@ -602,26 +656,26 @@ graph TD
 
 ```mermaid
 pie title 选题来源分布（设计目标）
-    "L-1 隐藏假设" : 25
-    "L0 实验张力" : 25
-    "L1 综述挖掘" : 20
-    "L2 奖项动机" : 10
-    "L3 跨领域裂谷" : 8
-    "L4 20年未解" : 5
-    "L5 实验对峙" : 4
-    "L6 计算壁垒" : 3
+    "S1 隐藏假设" : 25
+    "S2 实验张力" : 25
+    "S3 综述挖掘" : 20
+    "S4 奖项动机" : 10
+    "S5 跨领域裂谷" : 8
+    "S6 20年未解" : 5
+    "S7 实验对峙" : 4
+    "S8 计算壁垒" : 3
 ```
 
 | 优先级 | 代号 | 策略 | 搜索什么 | 灵感来源 |
 |--------|------|------|---------|---------|
-| 🔮 最高 | **L-1** | 隐藏假设挖掘 | 所有人都默认但从未检验的前提 | 爱因斯坦 1905 |
-| 🔥 高 | **L0** | 实验张力扫描 | 近两年实验数据与理论的 ≥3σ 矛盾 | 迈克耳孙-莫雷 |
-| 📖 高 | **L1** | 综述开放问题 | Rev. Mod. Phys. 等顶刊综述的 "open problem" | 学术共识 |
-| 🏆 高 | **L2** | 奖项动机分析 | Nobel / Wolf / Breakthrough 奖后的遗留问题 | 获奖者指的路 |
-| 🌍 兜底 | **L3** | 跨领域共识裂谷 | hep-th 和 cond-mat 对同一问题的相反结论 | 两群聪明人各说各的 |
-| 🕰️ 兜底 | **L4** | 20 年未解问题 | 长期搁置但近 5 年新工具已出现的老问题 | 时机到了 |
-| ⚡ 兜底 | **L5** | 实验-理论对峙 | ≥2 独立实验组确认的异常 / 理论明确预言但无人验证 | 实验在说话 |
-| 🔐 兜底 | **L6** | 计算复杂性壁垒 | 经典计算不可能但子问题可分解 | 绕开指数墙 |
+| 🔮 最高 | **S1** | 隐藏假设挖掘 | 所有人都默认但从未检验的前提 | 爱因斯坦 1905 |
+| 🔥 高 | **S2** | 实验张力扫描 | 近两年实验数据与理论的 ≥3σ 矛盾 | 迈克耳孙-莫雷 |
+| 📖 高 | **S3** | 综述开放问题 | Rev. Mod. Phys. 等顶刊综述的 "open problem" | 学术共识 |
+| 🏆 高 | **S4** | 奖项动机分析 | Nobel / Wolf / Breakthrough 奖后的遗留问题 | 获奖者指的路 |
+| 🌍 兜底 | **S5** | 跨领域共识裂谷 | hep-th 和 cond-mat 对同一问题的相反结论 | 两群聪明人各说各的 |
+| 🕰️ 兜底 | **S6** | 20 年未解问题 | 长期搁置但近 5 年新工具已出现的老问题 | 时机到了 |
+| ⚡ 兜底 | **S7** | 实验-理论对峙 | ≥2 独立实验组确认的异常 / 理论明确预言但无人验证 | 实验在说话 |
+| 🔐 兜底 | **S8** | 计算复杂性壁垒 | 经典计算不可能但子问题可分解 | 绕开指数墙 |
 
 **每条策略都有独立的文献搜索指令、自过滤标准、领域密度扫描和 AB 双博士验证。** 不靠运气，靠穷举。
 
@@ -747,10 +801,10 @@ Fork → 修改 → PR
 ```mermaid
 timeline
     title Polaris 演进路线
-    v4.0 : Skill 封装 : 一键安装 : 关键词触发
-    v4.1 : 多课题并行 : 跨课题知识迁移 : 孤儿节点碰撞
-    v4.2 : 自动实验设计 : 判别性实验生成 : 可及性评估
-    v5.0 : 多用户协作 : 分布式课题认领 : 实时北极星竞争
+    v1.0 : 首次发布 : 一键安装 : 关键词触发
+    v1.1 : 多课题并行 : 跨课题知识迁移 : 孤儿节点碰撞
+    v1.2 : 自动实验设计 : 判别性实验生成 : 可及性评估
+    v2.0 : 多用户协作 : 分布式课题认领 : 实时北极星竞争
 ```
 
 <br>
