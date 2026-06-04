@@ -114,7 +114,7 @@ Agent实例（用Agent工具启动，独立上下文）：
 | A博士 | 每轮探索开始时 | `research-group/A_AGENT.md` |
 | B博士 | 每轮探索开始时 | `research-group/B_AGENT.md` |
 | INSPECTOR | A/B每轮完成后 | `research-group/INSPECTOR.md` |
-| AHA访客 | 连续5轮无AHA / B双路径汇合 / 卡点关闭≥2 | `research-group/AHA.md` |
+| AHA访客 | **连续2轮无AHA / PI综合发现新洞察** / B双路径汇合 / 卡点关闭≥2 | `research-group/AHA.md` |
 | REVIEWER | 北极星收尾时 + **每≥3轮AB后强制触发** | `research-group/REVIEWER.md` |
 | AUDITOR | 收官时 | `research-group/AUDITOR.md` |
 
@@ -182,6 +182,8 @@ Phase清单.md ← 复制模板，全框 [ ]
    仅当返回空/错误/不可用时才降级 WebSearch。违反 → 该搜索无效，必须补做。
 9. ⛔ 空转拦截：3轮后子命题=0且AHA=0且B未提新方向 → 禁止收官。必须触发AHA访客+额外AB轮，
    最多额外2轮，仍空转才允许"有边界"收官。不允许"三轮跑完啥也没发现就关了"。
+10. ⛔ R1先发拦截：Round 1完成后PI必须独立搜索核心声张是否已被发表。
+    不等REVIEWER到R3才查。发现先发→立即评估差异性，重合则击毙。WebSearch即可，不依赖MCP。
 ```
 
 ---

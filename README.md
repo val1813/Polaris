@@ -312,6 +312,8 @@ npx @smithery/cli install @openags/paper-search-mcp --client claude
 
 然后说一句 **"北极星"**——如果 Claude 开始询问"选题还是推进"，说明安装成功。
 
+> 💰 **Token 消耗提醒：** 一个完整课题（3 轮 AB + INSPECTOR + REVIEWER）需启动 ~13 个 Agent。**无需昂贵的旗舰模型——DeepSeek V4 完全能胜任全部 SOP 流程**，从选题到收官一气呵成。不必在 token 上焦虑。
+
 ### 安装常见问题
 
 <details>
@@ -857,6 +859,12 @@ PaperSpine 是论文写作工具（从材料到成稿）。北极星是科研发
 > **"请严格检验现有成果，然后严格按 SOP 继续推进"**
 
 这句话会触发 INSPECTOR 重新校对已有推导，PI 重新评估 Phase清单状态，然后从断点继续。不需要你自己判断进度——系统会自动找到该从哪一步继续。
+</details>
+
+<details>
+<summary><b>Token 消耗大吗？用什么模型跑？</b></summary>
+
+一个完整课题（3轮）约 13 个 Agent。**DeepSeek V4 完全胜任**全部 SOP 流程，不需要昂贵的旗舰模型。
 </details>
 
 <details>
