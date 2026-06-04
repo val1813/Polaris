@@ -797,7 +797,7 @@ polaris/
 
 **就三步。** 注册身份 → 跑课题 → 交 JSON。SOP 引擎在后台自动运转，收官时自动填好你的学术指纹。
 
-> 🏛️ JSON 提交到独立仓库 **[polaris-registry](https://github.com/val1813/polaris-registry)**（待建）→ PR → 自动校验 → 合入 → 你的发现成为人类知识网络的一个节点。详见 [REGISTRY.md](REGISTRY.md)。
+> 🏛️ JSON 提交到独立仓库 **[polaris-registry](https://github.com/val1813/polaris-registry)** → PR → 自动校验 → 合入 → 你的发现成为人类知识网络的一个节点。详见 [REGISTRY.md](REGISTRY.md)。
 
 > 📖 详细安装 → [安装指南](#-安装指南) | 提示词速查 → [提示词大全](#-提示词大全) | 身份注册 → [ORCID.org](https://orcid.org)（免费，永久）
 

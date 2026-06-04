@@ -1,7 +1,7 @@
 # Polaris Registry — 社区知识库
 
 > **独立仓库。** 这里只放 JSON。没有代码，没有 SOP。
-> URL: `github.com/val1813/polaris-registry`（待建）
+> URL: `github.com/val1813/polaris-registry` ✅ 已上线
 
 ## 架构
 
