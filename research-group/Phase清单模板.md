@@ -9,6 +9,11 @@
 ## Phase启动
 
 ```
+[ ] 🪪 贡献者身份（第一个执行，整个课题只问一次）：
+      PI必须问用户："你的 ORCID iD 是什么？（orcid.org 免费注册）GitHub 用户名？"
+      用户回答了 → 记录到 当前状态.md，后续所有 JSON 自动填入
+      用户跳过了 → 标注"匿名贡献者"，GATE 7 时再问一次
+      格式：{"orcid": "0000-0002-XXXX-XXXX", "github": "xxx", "name": "可选"}
 [ ] ⛔ GATE -1: 核心矛盾结构验证（第一个执行，通过才能继续）
 
     三问必须全部为YES：
@@ -40,6 +45,7 @@
 
 ```
 [ ] INSPECTOR — 用Agent工具启动独立INSPECTOR，传入A推导文件
+      （INSPECTOR 内部优先用 `validation/validate.py` 做机械检查，AI 注意力留给语义判断）
 [ ] INSPECTOR — 用Agent工具启动独立INSPECTOR，传入B推导文件
 [ ] 读INSPECTOR结果 → 有阻断/警告？→记录到"本轮已知错误"，传入下一轮A/B的上下文
       ⛔ 阻断: A/B必须在下一轮产出中显式修正，INSPECTOR重检修正部分
@@ -55,7 +61,9 @@
         部分重合 → 标注差异化空间，继续但降低声张范围
         无重合 → 通过，继续
       ⚠️ 此步骤不依赖 paper-search-mcp。即使用 WebSearch 也要做。
-[ ] PI综合推导（读A+B产出→汇合判断→写synthesis/）
+[ ] PI综合推导（读A+B的roundN.json→汇合判断→写synthesis/）
+      同时生成下一轮上下文摘要（≤300字）：最坚固结论+致命弱点+必须修正的阻断
+      下一轮AB只收这个摘要，不读完整历史（PI.md §6）
 [ ] ⛔ AHA检查：本轮有新洞察吗？PI必须显式回答：
       A博士本轮有意外发现？B博士有跨学科连接？两者独立汇合到同一新方向？
       有任何一个 → 立即触发AHA访客（research-group/AHA.md），不等保底。
@@ -124,7 +132,11 @@
 [ ] GATE 2: 启动REVIEWER Agent（终审）
 [ ] ⛔ REVIEWER验证: 任何"引用虚构"/"先发冲突"→PI用WebSearch独立验证
 [ ] GATE 6: shared/知识库汇总.md末尾追加本课题K条目
+[ ] 🪪 贡献者身份二次确认：如果 Phase启动 时用户跳过了 → 现在再问一次
+      "收官了。你的 ORCID iD？（orcid.org 免费注册）不填则以'匿名贡献者'发表。"
+      填入 project.contributor 字段
 [ ] GATE 7: knowledge_graph/[课题名]_v[版本号]_[日期].json 存在？
+      确认 JSON 中 project.contributor.orcid 已填写（或显式标注 "anonymous"）
 [ ] 更新 项目/北极星队列.md（标记完成+结论类型）
 [ ] 可选: 回写 shared/北极星候选池.md
 [ ] 读取优先级矩阵 → 下一个北极星
@@ -140,4 +152,12 @@
 ⛔ 禁止跳过GATE 1.5的grep验证（必须显示grep输出）
 ⛔ 禁止PI发明SOP不存在的步骤（如交叉攻击、自我攻击反转）
 ⛔ 禁止REVIEWER结论直接采信（"引用虚构"指控→PI独立验证）
+```
+
+## 容错
+
+```
+Agent超时/格式错误 → 自动重试1次 → 仍失败 → PI手动接管 + 记录到卡点登记册
+Phase清单.md 就是状态管理器。断点重开 → 读清单 → 从第一个 [ ] 继续
+不需要 Redis，不需要外部状态管理。
 ```

@@ -1,0 +1,51 @@
+{
+  "id": "B02",
+  "title": "黑体辐射 vs 能量均分定理",
+  "domain": "量子力学",
+  "difficulty": "easy",
+  "year_range": "1895-1900",
+
+  "contradiction": {
+    "proposition_A": "经典统计力学的能量均分定理：每个电磁模式平均能量 = kT",
+    "proposition_B": "黑体辐射实验数据：高频端能量密度趋近于零（Wien位移）",
+    "why_not_both": "如果能量均分成立，高频模式数量无限 → 总能量发散（紫外灾难）。实验没有。"
+  },
+
+  "historical_context": {
+    "key_experiment": "Lummer-Pringsheim (1899) 精确黑体辐射测量",
+    "pre_planck_attempts": "Wien公式（高频对，低频错）、Rayleigh-Jeans（低频对，高频发散）",
+    "hidden_assumption": "能量是连续的 — 电磁辐射可以取任意连续值"
+  },
+
+  "ground_truth": {
+    "resolution": "能量量子化：E = hν。每个模式能量不是 kT 而是 hν/(e^(hν/kT)-1)。高频模式被指数压低。",
+    "key_insight": "能量不连续 — 这是量子力学的起点",
+    "theory": "普朗克黑体辐射公式 (Planck 1900)",
+    "landmark_paper": "Planck, Verh. Dtsch. Phys. Ges. 2, 237 (1900)"
+  },
+
+  "what_selector_should_find": {
+    "strategy": "S2 (实验张力扫描)",
+    "hidden_assumption": "能量连续",
+    "search_terms": ["blackbody radiation anomaly", "ultraviolet catastrophe", "Planck law derivation"]
+  },
+
+  "what_ab_should_discover": {
+    "a_path": "从热力学+统计出发 → 能量均分 → 发散 → 需要截断",
+    "b_path": "从信息论/组合优化出发 → 相空间离散化 → 自然量子化",
+    "convergent_conclusion": "能量必须量子化以消除紫外发散"
+  },
+
+  "scoring": {
+    "selector_hit": 1,
+    "ab_direction_correct": 1,
+    "inspector_gate_correct": 1,
+    "reviewer_prior_art_correct": 1,
+    "convergence_rounds_ideal": 2
+  },
+
+  "references": [
+    {"label": "Planck 1900", "journal": "Verh. Dtsch. Phys. Ges. 2, 237"},
+    {"doi": "10.1002/andp.19003060102", "label": "Planck 1901 Ann. Phys."}
+  ]
+}

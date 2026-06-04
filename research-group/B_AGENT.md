@@ -93,15 +93,37 @@ INSPECTOR不审你的跳跃是否合理——它只查量纲和符号。
 
 ---
 
-### §末 产出格式（每轮探索结束必须写）
+### §末 产出格式（每轮输出 `roundN.json`）
 
-本轮的跨学科跳跃：[源学科] → [借来的结构] → [物理翻译]
-这个结构的数学对象：[math_object]
-如果这个同构成立，最奇怪的可检验预测是：[一句话]
-A博士最可能反对的点：[预测A博士的攻击方向]
-本轮失败记录（如有）：[跳跃失败的学科+失败原因]
-下一步计划：[下一轮打算跳哪个学科？针对哪个方向？]
-需要PI投喂的文献方向：[希望PI搜索什么关键词]
+按照 `validation/schema.md` 的完整格式。**中间过程只输出 JSON，只有收官才写 md。**
+
+```
+{
+  "project": "LP27", "round": 1, "agent": "B",
+  "polaris": "一句话北极星",
+  "framework": "跨学科来源（如：信息论/MaxCal/统计推断）",
+  "findings": "本轮核心发现",
+  "math_object": "借来的数学结构",
+  "strangest_prediction": "如果同构成立，最可检验的预测",
+  "a_objection": "预测A博士最可能反对的点",
+  "failed_jumps": ["跳跃失败的学科+原因"],
+  "next_plan": "下一轮方向",
+  "literature_needed": "需要PI投喂的文献关键词",
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "一句话声张",
+      "confidence": 0.75,
+      "new_insight": true,
+      "equations": [...],
+      "references": [...],
+      "assumptions": [...]
+    }
+  ]
+}
+```
+
+核心规则同 A博士。跨学科跳跃通常 `new_insight=true`。完整规范见 `validation/schema.md`。
 
 ---
 

@@ -131,13 +131,50 @@
 
 ---
 
-### §末 产出格式（每轮探索结束必须写）
+### §末 产出格式（每轮输出 `roundN.json`）
 
-本轮成果：[推导出的核心结论，一句话]
-新增的引用文献：[本轮新引用的论文，含arXiv号或DOI]
-最弱的环节：[推导链中哪一步依赖最多未验证假设]
-下一步计划：[下一轮打算往哪个方向推？具体到方程/数据/方法]
-需要PI投喂的文献方向：[希望PI搜索什么关键词]
+按照 `validation/schema.md` 的完整格式。**中间过程只输出 JSON，只有收官才写 md。**
+
+```
+{
+  "project": "LP27", "round": 1, "agent": "A",
+  "polaris": "一句话北极星",
+  "framework": "本轮的物理框架（如：凝聚态/费米液体理论）",
+  "findings": "本轮核心发现（一段话，可被PI直接引用）",
+  "weakest_link": "推导链中最弱的环节",
+  "next_plan": "下一轮方向",
+  "literature_needed": "需要PI投喂的文献关键词",
+  "claims": [
+    {
+      "id": "C1",
+      "statement": "一句话声张",
+      "confidence": 0.75,
+      "new_insight": false,
+      "equations": [
+        {
+          "label": "F1",
+          "expression": "m/(n*e**2*tau)",
+          "variables": {"m": "electron_mass", "n": "density", "e": "charge", "tau": "scattering_time"},
+          "units": "ohm*meter",
+          "limits": [{"variable": "tau", "to": "oo", "expected": "0", "desc": "完美导体"}],
+          "numerical_test": {
+            "substitutions": {"m": 9.11e-31, "n": 1e28, "e": 1.6e-19, "tau": 1e-14},
+            "expected_range": [1e-8, 1e-5]
+          }
+        }
+      ],
+      "references": [{"doi": "10.1103/...", "label": "Author Year"}],
+      "assumptions": ["假设1", "假设2"]
+    }
+  ]
+}
+```
+
+核心规则：
+- 表达式用 SymPy 兼容格式（`**` 不用 `^`，`exp()` 不用 `e^`）
+- `new_insight=true` 会触发 PI 的 AHA 检查
+- 有数值就带 `numerical_test`，有极限就带 `limits`
+- 完整规范见 `validation/schema.md`
 
 ---
 

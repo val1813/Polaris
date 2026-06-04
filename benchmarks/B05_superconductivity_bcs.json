@@ -1,0 +1,52 @@
+{
+  "id": "B05",
+  "title": "超导电性 vs 金属电阻",
+  "domain": "凝聚态物理",
+  "difficulty": "hard",
+  "year_range": "1911-1957",
+
+  "contradiction": {
+    "proposition_A": "金属有电阻——电子被晶格振动（声子）和杂质散射，T→0 时电阻趋于剩余电阻",
+    "proposition_B": "超导体在 T_c 以下电阻严格为零——不是'很小'，是零。完全抗磁性（Meissner效应）",
+    "why_not_both": "零电阻意味着没有散射机制。已知散射机制在低温下仍存在。需要全新的基态。"
+  },
+
+  "historical_context": {
+    "key_experiment": "Kamerlingh Onnes (1911) — Hg 在 4.2K 电阻消失；Meissner-Ochsenfeld (1933) — 完全抗磁性",
+    "pre_bcs_attempts": "London 方程（唯象）、Ginzburg-Landau（序参量，唯象）、同位素效应（T_c ∝ M^{-1/2}，暗示声子参与）",
+    "hidden_assumption": "电子是费米子，Pauli 不相容 → 不能占据同一量子态 → 不能形成 Bose 凝聚"
+  },
+
+  "ground_truth": {
+    "resolution": "电子通过声子交换形成 Cooper 对（有效吸引力克服 Coulomb 排斥）。Cooper 对是玻色子，在 T_c 以下发生 Bose-Einstein 凝聚，形成无能隙的超流。电阻为零是因为散射无法破坏凝聚体中的单个 Cooper 对。",
+    "key_insight": "不是'电子不再散射'，而是'散射不足以破坏凝聚序参量的相位相干性'",
+    "theory": "BCS 理论 (Bardeen-Cooper-Schrieffer 1957)",
+    "landmark_paper": "Bardeen, Cooper, Schrieffer, Phys. Rev. 108, 1175 (1957)"
+  },
+
+  "what_selector_should_find": {
+    "strategy": "S2 (实验张力扫描) 或 S6 (20年未解问题)",
+    "hidden_assumption": "电子不能通过吸引力配对",
+    "search_terms": ["superconductivity mechanism", "zero resistance theory", "electron pairing", "isotope effect"]
+  },
+
+  "what_ab_should_discover": {
+    "a_path": "从 Fröhlich 哈密顿量出发 → 电子-声子耦合 → 有效吸引力 → Cooper 不稳定性",
+    "b_path": "从量子场论/对称性破缺出发 → U(1) 规范对称自发破缺 → 无能隙 Goldstone 模（被 Higgs 机制吃掉）→ 超导",
+    "convergent_conclusion": "电子配对 + 凝聚 = 超导。不是'无散射'而是'散射无效'"
+  },
+
+  "scoring": {
+    "selector_hit": 1,
+    "ab_direction_correct": 2,
+    "inspector_gate_correct": 1,
+    "reviewer_prior_art_correct": 1,
+    "convergence_rounds_ideal": 3
+  },
+
+  "references": [
+    {"doi": "10.1103/PhysRev.108.1175", "label": "BCS 1957"},
+    {"label": "Meissner-Ochsenfeld 1933", "journal": "Naturwiss. 21, 787"},
+    {"label": "London & London 1935", "journal": "Proc. Roy. Soc. A149, 71"}
+  ]
+}

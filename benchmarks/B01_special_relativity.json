@@ -1,0 +1,51 @@
+{
+  "id": "B01",
+  "title": "光速不变 vs 伽利略相对性",
+  "domain": "狭义相对论",
+  "difficulty": "easy",
+  "year_range": "1887-1905",
+
+  "contradiction": {
+    "proposition_A": "麦克斯韦方程组给出真空光速 c = 1/√(ε₀μ₀) 为常数，与观察者运动无关",
+    "proposition_B": "伽利略相对性原理要求速度叠加：观察者运动时测得的光速应为 c ± v",
+    "why_not_both": "如果伽利略变换成立，不同惯性系中的麦克斯韦方程形式不同，光速不是不变量"
+  },
+
+  "historical_context": {
+    "key_experiment": "Michelson-Morley (1887) — 零结果，无以太漂移",
+    "pre_einstein_attempts": "Lorentz-FitzGerald 长度收缩（特设性假说，非原理性解决）",
+    "hidden_assumption": "同时性是绝对的 — 所有惯性系共享同一时间坐标"
+  },
+
+  "ground_truth": {
+    "resolution": "放弃绝对同时性，用洛伦兹变换替代伽利略变换。光速在所有惯性系中为常数，时空坐标混合。",
+    "key_insight": "同时性是相对的。Δt' = γ(Δt - vΔx/c²)",
+    "theory": "狭义相对论 (Einstein 1905)",
+    "landmark_paper": "Einstein, Ann. Phys. 17, 891 (1905)"
+  },
+
+  "what_selector_should_find": {
+    "strategy": "S1 (隐藏假设挖掘)",
+    "hidden_assumption": "同时性是绝对的",
+    "search_terms": ["speed of light constancy", "Michelson-Morley", "Lorentz transformation derivation"]
+  },
+
+  "what_ab_should_discover": {
+    "a_path": "从麦克斯韦方程协变性出发 → 导出洛伦兹变换",
+    "b_path": "从信息/因果结构出发 → 光速作为因果速度上限",
+    "convergent_conclusion": "伽利略变换需要被洛伦兹变换替代"
+  },
+
+  "scoring": {
+    "selector_hit": 1,
+    "ab_direction_correct": 1,
+    "inspector_gate_correct": 1,
+    "reviewer_prior_art_correct": 1,
+    "convergence_rounds_ideal": 2
+  },
+
+  "references": [
+    {"doi": "10.1002/andp.19053221004", "label": "Einstein 1905"},
+    {"label": "Michelson-Morley 1887", "journal": "Am. J. Sci. 34, 333"}
+  ]
+}

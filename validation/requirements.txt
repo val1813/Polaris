@@ -1,0 +1,19 @@
+# Polaris Validation Engine — 全部免费，无 API Key
+# 一键安装：pip install -r validation/requirements.txt
+
+# 核心（必装，validate.py 依赖）
+sympy>=1.12       # 符号计算：极限、代数、微积分
+pint>=0.23        # 物理单位/量纲检查
+
+# 通用数值（建议装）
+numpy>=1.26       # 数值计算基础
+scipy>=1.11       # 积分、优化、常微分方程
+
+# 量子物理（研究量子方向时装）
+qutip>=5.0        # 密度矩阵、Lindblad 主方程、能谱、纠缠
+
+# 广义相对论（研究引力/宇宙学时装）
+einsteinpy>=0.4   # 度规、测地线、张量、Christoffel 符号
+
+# 加速（可选）
+symengine>=0.11   # SymPy 的 C++ 后端，符号计算快 10-100x
