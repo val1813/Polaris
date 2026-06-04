@@ -55,6 +55,8 @@
 我们不写论文格式的八股。不做文献综述的体力活。
 我们找的是 **矛盾**——两个基本原理不能同时为真——然后让 AI 以严格对抗的方式，寻找解释、寻找突破、寻找那个让你半夜坐起来的 **Aha Moment**。
 
+**市面上大部分的 AI 科研工具，最大的痛点不是写作能力——是缺 Idea。** 它们能帮你排版、润色、查文献、写综述，但没人告诉你去研究什么、矛盾在哪里、哪个方向值得打。北极星试图解决的就是这件事。
+
 <br>
 
 ---
@@ -107,6 +109,8 @@ graph LR
 - ❌ 不是保证结果能发 Nature 的许愿机
 
 **你会得到的是：一个明确的矛盾、一条被严格验证过的推理链、一个你可以指着说"这是我发现的"的 Aha Moment。**
+
+> 🪝 **这些恰恰是市面上其他论文写作工具最缺的东西——一个真正的 Idea。** 把北极星产出的矛盾 + 推导链 + Aha Moment，接上任何一个论文写作 Skill，也许就是一篇 PRL。
 
 <br>
 
@@ -258,76 +262,6 @@ npx @smithery/cli install @openags/paper-search-mcp --client claude
 
 然后说一句 **"北极星"**——如果 Claude 开始询问"选题还是推进"，说明安装成功。
 
----
-
-### 🗂️ 备选方案：纯 Markdown 包（零配置 · 不用 Git · 不用 Skill）
-
-> **如果上面的安装让你觉得麻烦，这条路径没有任何技术门槛。**
-
-这个项目的本质就是 **14 个角色的 Prompt 文件 + 选题引擎 + 执行协议**。不装 Skill、不配 MCP，照样能跑。
-
-**第 1 步：下载**
-
-点击 GitHub 仓库右上角的 **⏬ Code → Download ZIP**，或直接：
-
-```
-https://github.com/val1813/polaris/archive/refs/heads/main.zip
-```
-
-**第 2 步：解压**
-
-解压到任意目录，比如 `D:\polaris\` 或 `~/polaris/`。
-
-解压后你会看到：
-```
-polaris/
-  ├── research-group/         ← 14 个角色的 Prompt（核心）
-  ├── topic-selector/         ← 选题引擎
-  ├── vendor/                 ← 内置 paper-search-mcp 安装包
-  │   └── paper-search-mcp.zip
-  └── research-sop.md         ← Skill 入口
-```
-
-**第 3 步（可选但强烈建议）：安装内置的 paper-search-mcp**
-
-压缩包里已经带了 paper-search-mcp，不需要去网上找：
-
-```bash
-# 1. 解压内置的 MCP 包
-cd D:\polaris\vendor\
-# 右键 paper-search-mcp.zip → 解压到当前文件夹
-# 或命令行：
-tar -xf paper-search-mcp.zip
-
-# 2. 按 MCP 包的 README 配置 Claude Code
-# 把 paper-search-mcp 配置到 Claude Code 的 MCP 设置中
-# 参考：vendor/paper-search-mcp/README.md（解压后）
-```
-
-> 📦 内置 MCP 路径：`vendor/paper-search-mcp.zip`，指向你解压后的 `vendor/paper-search-mcp/` 目录。
-
-**第 4 步：写入记忆（⛔ 关键！不写 = 一次性）**
-
-> ⚠️ 只在聊天里说一句话，Claude 当时记住了，**关掉窗口就忘了**。必须写入持久记忆。
-
-在 Claude Code 中，输入以下命令（把路径换成你实际的解压路径）：
-
-```bash
-/remember 科研SOP文件在 D:\polaris\ ，当我说"按科研SOP寻找课题"时，读 D:\polaris\topic-selector\SELECTOR.md 并完整执行8条搜索策略。当我说"按科研SOP开展科研"时，读 D:\polaris\research-group\CLAUDE.md，复制Phase清单模板，启动AB博士+INSPECTOR完整流程。所有角色Prompt在 D:\polaris\research-group\ 下，用Agent工具启动时把对应角色的md文件完整内容作为prompt传入。学术搜索优先用paper-search-mcp，MCP安装包在 D:\polaris\vendor\paper-search-mcp.zip，不可用时降级WebSearch。
-```
-
-**验证记忆是否生效：**
-
-关掉 Claude Code，重新打开，说一句 **"北极星"**。如果 Claude 开始询问"选题还是推进"，说明记忆已持久化。
-
-> 💡 **原理：** `/remember` 命令会把这段指令写进 Claude Code 的持久记忆文件里（`~/.claude/projects/.../memory/`）。之后每次新对话，Claude 都会自动加载这条记忆。**和你现在用的方式完全一样。**
-
-**第 5 步：开始使用**
-
-和 Skill 安装版完全一样的使用方式——说"按科研SOP寻找课题"或"按科研SOP开展科研"即可。
-
-> ℹ️ 这个方案的原理和你现在用的一样——Claude 记住文件位置，按指令读取。**没有 Skill 系统也能完整运行**，而且 MCP 安装包已经内置在 `vendor/` 里了，不需要额外下载。
-
 ### 安装常见问题
 
 <details>
@@ -354,7 +288,7 @@ tar -xf paper-search-mcp.zip
 
 ## ⚡ 快速开始
 
-> 💡 **不想折腾安装？** 直接跳到上面 [🗂️ 备选方案：纯 Markdown 包](#-备选方案纯-markdown-包零配置--不用-git--不用-skill) — 下载 ZIP → 解压 → 一句话告诉 Claude 文件在哪，就能用。
+> 💡 **不想折腾安装？** 点击右上角 **⏬ Code → Download ZIP**，解压后告诉 AI：**"请读目录，将此套流程记到记忆中，以后说寻找课题或者科研SOP，请按这个要求严格执行"**。零配置，直接跑。
 
 安装后，直接对 Claude Code 说：
 
