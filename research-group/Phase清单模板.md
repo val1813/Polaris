@@ -135,8 +135,9 @@
 [ ] 🪪 贡献者身份二次确认：如果 Phase启动 时用户跳过了 → 现在再问一次
       "收官了。你的 ORCID iD？（orcid.org 免费注册）不填则以'匿名贡献者'发表。"
       填入 project.contributor 字段
-[ ] GATE 7: knowledge_graph/[课题名]_v[版本号]_[日期].json 存在？
-      确认 JSON 中 project.contributor.orcid 已填写（或显式标注 "anonymous"）
+[ ] GATE 7: knowledge_graph/[GitHub用户名-LP编号]_v[版本]_[日期].json 存在？
+      id 格式：contributor.github + "-" + LP编号（如 val1813-LP27）
+      确认 project.contributor.orcid 已填写（或显式标注 "anonymous"）
 [ ] 更新 项目/北极星队列.md（标记完成+结论类型）
 [ ] 可选: 回写 shared/北极星候选池.md
 [ ] 读取优先级矩阵 → 下一个北极星
